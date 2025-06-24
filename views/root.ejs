@@ -14,6 +14,7 @@
 </head>
 
 <body>
+
     <div class="navbar-container sticky-top">
         <nav class="navbar navbar-expand-md bg-body-tertiary border-bottom ">
             <div class="container-fluid">
@@ -27,13 +28,15 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav ms-auto nav-link-right">
                         <span class="navbar-nav nav-link-new">
-                            <a class="nav-link" href="/tasks"><b>List Tasks</b></a>
-                        </span>
-                        <span class="navbar-nav nav-link-new">
                             <a class="nav-link" href="/tasks/isCompleted"><b>Done?</b></a>
                         </span>
                         <span class="navbar-nav nav-link-new">
-                           
+                            <% if(!currentUser) {  %>
+                                <a class="nav-link" href="/signin"><b>Signup</b></a>
+                            <% } %>
+                            <% if(currentUser) {  %>
+                                <a class="nav-link" href="/logout"><b>Logout</b></a>
+                            <% } %>
                         </span>
                     </div>
                 </div>
@@ -41,9 +44,10 @@
         </nav>
        </div>
 
-    <div class="card-container" style="justify-content: center; align-items: center;">
-        <div class="alert alert-danger " role="alert" style="text-align: center; width: 50%;">
-            <%= message %> &nbsp; <a href="/tasks" style="color: red;" class="link-underline-danger">Go back</a>
+
+    <div class="card-container">
+        <div class="add-new-btn" style="width:60%">
+            <a class="nav-link" href="/tasks"><b>List Task</b></a>
         </div>
     </div>
 
@@ -63,9 +67,9 @@
             </div>
         </footer>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
         crossorigin="anonymous"></script>
 </body>
-
 </html>

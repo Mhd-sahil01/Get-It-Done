@@ -73,6 +73,10 @@ app.use((req, res, next) => {
     next();
 });
 
+app.get("/", (req, res)=> {
+    res.render("root.ejs");
+})
+
 app.use("/tasks", taskRouter);
 app.use("/", userRouter);
 
